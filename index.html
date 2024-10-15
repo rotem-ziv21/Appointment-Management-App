@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Management App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      margin: 20px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .nav {
+      margin-bottom: 20px;
+    }
+    .nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #007BFF;
+    }
+    .nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/appointments" onclick="navigate(event, 'appointments')">תורים</a>
+    <a href="/pricing" onclick="navigate(event, 'pricing')">מחירון</a>
+    <a href="/portfolio" onclick="navigate(event, 'portfolio')">תיק עבודות</a>
+    <a href="/scheduled-appointments" onclick="navigate(event, 'scheduled-appointments')">תורים שנקבעו</a>
+  </div>
+  <div id="root" class="container">
+    <h1 class="title">ניהול תורים</h1>
+    <p>ברוכים הבאים למערכת לניהול תורים!</p>
+  </div>
+
+  <script>
+    function navigate(event, section) {
+      event.preventDefault();
+      const root = document.getElementById('root');
+      root.innerHTML = '';
+
+      switch(section) {
+        case 'appointments':
+          root.innerHTML = '<h1 class="title">ניהול תורים</h1><p>תוכן נוסף לניהול תורים.</p>';
+          break;
+        case 'pricing':
+          root.innerHTML = '<h1 class="title">מחירון</h1><p>תוכן נוסף למחירון.</p>';
+          break;
+        case 'portfolio':
+          root.innerHTML = '<h1 class="title">תיק עבודות</h1><p>תוכן נוסף לתיק עבודות.</p>';
+          break;
+        case 'scheduled-appointments':
+          root.innerHTML = '<h1 class="title">תורים שנקבעו</h1><p>תוכן נוסף לתורים שנקבעו.</p>';
+          break;
+        default:
+          root.innerHTML = '<h1 class="title">ניהול תורים</h1><p>ברוכים הבאים למערכת לניהול תורים!</p>';
+      }
+    }
+  </script>
+</body>
+</html>
